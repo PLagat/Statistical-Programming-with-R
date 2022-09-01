@@ -1,0 +1,58 @@
+#QUESTION ONE
+load("D:\\INTRODUCTORY ECONOMETRICS\\RStudio CAT data (remember to unzip the folder)-20200713\\htv.RData")
+model1 <- lm(wage~educ)
+View(data)
+View(desc)
+
+
+#Question (i)
+range(data$educ)
+#Range is from 6 to 20, hence Range=14
+
+#Question (ii)
+model1 <- lm(wage~exper)
+summary(model1)
+#wage = 17.527-0.3945exper
+
+#Qustion (iii)
+log.model <- lm(log(wage)~motheduc+fatheduc+exper)
+summary(log.model)
+#log(wage) =  1.828836+0.030469motheduc+ 0.031494fatheduc-0.016580exper
+#R-squared = 0.09273*100 = 9.273 , this is the variation in log(wage) that is explained by the model
+
+#Question(iv)
+#An increase in fatheduc by one leads to a 3.1494% increase in wage.
+
+#Question(v)
+
+#Question (vi)
+Model2 <- lm(log(wage)~abil+abil^2)
+summary(Model2)
+#Question(vii)
+
+
+
+#QUESTION 2
+load("D:\\INTRODUCTORY ECONOMETRICS\\RStudio CAT data (remember to unzip the folder)-20200713\\bwght2.RData")
+View(desc)
+View(data)
+model <- lm(bwght~cigs+meduc+feduc)
+summary(model)
+#Question (i)
+#Ho: B2-B3 = 0
+#H1: B2-B3<0
+
+#Question (ii)
+#bwght = 3273.19515-9.30209cigs+ 0.08732motheduc+10.35691fatheduc
+
+#Question (iii)
+
+#Question (iv)
+#we can say that theta=B2-B3 and B2= THETA+B3 
+sb <- meduc+feduc
+Model4 <- lm(bwght~cigs+meduc+sb)
+summary(Model4)
+#Question (v)
+
+
+
